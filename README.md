@@ -22,7 +22,7 @@
 ## pre setup
 
 # install guest 
-`bash create_guest.sh`
+`bash create_guest.sh` named guest1
 
 In guest os, modify /etc/ssh/sshd_config to allow ssh as root
 
@@ -41,7 +41,7 @@ then use setup-sshkey.sh to setup ssh key access with guest vm.
 
 ## Host setup
 
-Run `sudo virsh edit guest0` to edit the xml spec.
+Run `sudo virsh edit guest1` to edit the xml spec.
 
 ```
 # Modify this:
@@ -53,7 +53,7 @@ Run `sudo virsh edit guest0` to edit the xml spec.
   </qemu:commandline>
 ```
 
-To enable **nested virtualization vmx feature**, `sudo virsh edit guest0` to modify the cpu attribute to,
+To enable **nested virtualization vmx feature**, `sudo virsh edit guest1` to modify the cpu attribute to,
 ```
   <cpu mode='host-model' check='partial'>
     <model fallback='allow'>Haswell-noTSX-IBRS</model>
