@@ -1,9 +1,10 @@
 # dev helpers
 
-1. copy the /boot/config-xxx from guest
+1. change your guest ip, target debuging kernel verison and modules(where compiled modules to be install) path in config.sh
 
+2. make sure .config is not exsit, start guest copy the /boot/config-xxx from guest
    `scp root@guest_ip:/boot/config-3.13-xxx .config`
-2. change your guest ip and modules path in config.sh
+
 3. In linux src directory, `yes "" | make oldconfig`
 4. In linux src directory, `make menuconfig`, in virtualization, mark **KVM** and intel part to `*` (builtin),
    In **Kernel Hacking - Compile time checks and options**, turn on the
@@ -19,6 +20,9 @@
 6. `bash update-guest.sh` to install new kernel for guest os
 
 ## pre setup
+
+# install guest 
+`bash create_guest.sh`
 
 In guest os, modify /etc/ssh/sshd_config to allow ssh as root
 
